@@ -16,7 +16,7 @@ class MainWindow(QtWidgets.QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.showFullScreen()
+        #self.showFullScreen()
 
         
         self.ui.exit_Button.clicked.connect(self.exit_Button_clicked)

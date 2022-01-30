@@ -184,7 +184,7 @@ Upload:</string>
              </layout>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton">
+             <widget class="QPushButton" name="wifiConnect_button">
               <property name="text">
                <string>Connect</string>
               </property>
