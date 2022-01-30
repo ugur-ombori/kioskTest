@@ -15,6 +15,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(322, 603)
+        Dialog.setStyleSheet("background-color: rgb(136, 138, 133);")
         self.gridLayout_2 = QtWidgets.QGridLayout(Dialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout()
@@ -54,6 +55,7 @@ class Ui_Dialog(object):
         self.verticalLayout.addWidget(self.speed_label)
         self.ConnectionCheck_button = QtWidgets.QPushButton(self.groupBox)
         self.ConnectionCheck_button.setMaximumSize(QtCore.QSize(100, 25))
+        self.ConnectionCheck_button.setStyleSheet("background-color: rgb(46, 52, 54);")
         self.ConnectionCheck_button.setObjectName("ConnectionCheck_button")
         self.verticalLayout.addWidget(self.ConnectionCheck_button)
         self.verticalLayout_7.addWidget(self.groupBox)
@@ -88,6 +90,7 @@ class Ui_Dialog(object):
         self.verticalLayout_4.addLayout(self.verticalLayout_3)
         self.verticalLayout_5.addLayout(self.verticalLayout_4)
         self.wifiConnect_button = QtWidgets.QPushButton(self.groupBox_2)
+        self.wifiConnect_button.setStyleSheet("background-color: rgb(46, 52, 54);")
         self.wifiConnect_button.setObjectName("wifiConnect_button")
         self.verticalLayout_5.addWidget(self.wifiConnect_button)
         self.verticalLayout_6.addLayout(self.verticalLayout_5)

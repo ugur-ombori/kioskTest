@@ -24,12 +24,13 @@ class networkTest(QtWidgets.QDialog):
         filename = os.path.join(CURRENT_DIRECTORY, "../resource/ombori_mini.jpeg")
         self.ui.label.setPixmap(QtGui.QPixmap(filename))    
         
-        wifi_list = self.Search()
-        for wifi_network in wifi_list:
-            self.ui.comboBox.addItem(wifi_network.ssid)
-            
+        
+                
         self.checkConnection()
         self.show()
+        
+        self.wifiScan = threading.Thread(target=self.Search)
+        self.wifiScan.start()
     
     def checkConnection(self):
         connection = self.connectTest()
@@ -53,6 +54,7 @@ class networkTest(QtWidgets.QDialog):
             else:
                 self.speedTestProcess.start()
         else:
+            
             self.ui.Ip_label.setText("Ip: -" )
             
             self.ui.InternetOutput_label.setStyleSheet("color: rgb(239, 41, 41);")
@@ -89,6 +91,9 @@ class networkTest(QtWidgets.QDialog):
         for cell in cells:
             wifilist.append(cell)
 
+        for wifi_network in wifilist:
+            self.ui.comboBox.addItem(wifi_network.ssid)
+        
         return wifilist
 
 

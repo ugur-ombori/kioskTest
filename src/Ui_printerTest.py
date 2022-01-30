@@ -15,6 +15,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(322, 603)
+        Dialog.setStyleSheet("background-color: rgb(136, 138, 133);")
         self.gridLayout_2 = QtWidgets.QGridLayout(Dialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout()
@@ -52,6 +53,7 @@ class Ui_Dialog(object):
         self.print_button = QtWidgets.QPushButton(self.groupBox)
         self.print_button.setMinimumSize(QtCore.QSize(80, 25))
         self.print_button.setMaximumSize(QtCore.QSize(80, 25))
+        self.print_button.setStyleSheet("background-color: rgb(46, 52, 54);")
         self.print_button.setObjectName("print_button")
         self.horizontalLayout.addWidget(self.print_button)
         self.verticalLayout.addLayout(self.horizontalLayout)
