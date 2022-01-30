@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="pictures">
+    <file>ombori_white3.png</file>
+    <file>ombori_white2.png</file>
+    <file>ombori_white.png</file>
+    <file>ombori.png</file>
+    <file>ombori_mini.jpeg</file>
+  </qresource>
+</RCC>
