@@ -36,9 +36,6 @@ class Ui_Dialog(object):
         self.groupBox.setObjectName("groupBox")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.groupBox)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.printerStatus_label = QtWidgets.QLabel(self.groupBox)
-        self.printerStatus_label.setObjectName("printerStatus_label")
-        self.verticalLayout.addWidget(self.printerStatus_label)
         self.speed_label = QtWidgets.QLabel(self.groupBox)
         font = QtGui.QFont()
         font.setPointSize(40)
@@ -67,7 +64,6 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.groupBox.setTitle(_translate("Dialog", "Printer Test"))
-        self.printerStatus_label.setText(_translate("Dialog", "Printer Status: Not Found"))
         self.speed_label.setText(_translate("Dialog", "AA11"))
         self.print_button.setText(_translate("Dialog", "Print"))
 import resource_rc

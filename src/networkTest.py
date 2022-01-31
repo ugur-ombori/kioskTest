@@ -86,7 +86,7 @@ class networkTest(QtWidgets.QDialog):
     def Search(self):
         wifilist = []
 
-        cells = wifi.Cell.all('wlxc006c35fe2e5')
+        cells = wifi.Cell.all('wlp2s0')
 
         for cell in cells:
             wifilist.append(cell)

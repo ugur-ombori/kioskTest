@@ -11,7 +11,7 @@ class printerTest(QtWidgets.QDialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         
-        self.ui.print_button.clicked.connect(self.print)
+        self.ui.print_button.clicked.connect(self.printerPrint)
         
         CURRENT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
         print(CURRENT_DIRECTORY)
@@ -20,10 +20,10 @@ class printerTest(QtWidgets.QDialog):
         
         self.show()
         
-    def print():
-        printer = getUSBPrinter()(idVendor=0x1504,
-                          idProduct=0x0006, 
-                          inputEndPoint=0x82,
+    def printerPrint():
+        printer = getUSBPrinter()(idVendor=0x04e7,
+                          idProduct=0x2902, 
+                          inputEndPoint=0x81,
                           outputEndPoint=0x01)
 
         printer.text('AA11')

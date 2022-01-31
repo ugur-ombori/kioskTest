@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 from Ui_kiosk import Ui_MainWindow
 from networkTest import networkTest
 from printerTest import printerTest
@@ -16,9 +16,10 @@ class MainWindow(QtWidgets.QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        #self.showFullScreen()
+        self.showFullScreen()
 
-        
+        self.ui.verticalLayout.setAlignment(QtCore.Qt.AlignCenter)
+
         self.ui.exit_Button.clicked.connect(self.exit_Button_clicked)
         self.ui.poweroff_Button.clicked.connect(self.poweroffButton_clicked)
         self.ui.TouchScreenTest_Button.clicked.connect(self.TouchScreenTest_Button_clicked)

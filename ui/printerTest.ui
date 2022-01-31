@@ -66,13 +66,6 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLabel" name="printerStatus_label">
-          <property name="text">
-           <string>Printer Status: Not Found</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QLabel" name="speed_label">
           <property name="font">
            <font>
