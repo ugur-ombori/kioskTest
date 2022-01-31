@@ -108,7 +108,7 @@ class networkTest(QtWidgets.QDialog):
 
 
     def FindFromSavedList(self, ssid):
-        cell = wifi.Scheme.find('wlxc006c35fe2e5', ssid)
+        cell = wifi.Scheme.find('wlp2s0', ssid)
 
         if cell:
             return cell
@@ -167,7 +167,7 @@ class networkTest(QtWidgets.QDialog):
         if not cell:
             return False
 
-        scheme = wifi.Scheme.for_cell('wlxc006c35fe2e5', cell.ssid, cell, password)
+        scheme = wifi.Scheme.for_cell('wlp2s0', cell.ssid, cell, password)
         scheme.save()
         return scheme
 
