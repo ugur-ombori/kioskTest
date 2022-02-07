@@ -19,12 +19,13 @@ class printerTest(QtWidgets.QDialog):
         filename = os.path.join(CURRENT_DIRECTORY, "../resource/ombori_mini.jpeg")
         self.ui.label.setPixmap(QtGui.QPixmap(filename))    
 
+        #filter the physical interfaces to not show HAL interfaces
         self._interfaces = netifaces.interfaces()
-        try:
+        try:#Eliminate the 'lo' interface
             self._interfaces.remove('lo')
         except:
             print("no lo interface found!")
-        try:
+        try:#Eliminate the 'docker' interface
             self._interfaces.remove('docker0')
         except:
             print("no docker0 interface found!")
@@ -47,8 +48,9 @@ class printerTest(QtWidgets.QDialog):
         self.ui.speed_label.setText(labelStr)
 
         self.show()
-        
+    #Connects to printer and prints a test reciept with a content of MAC Adresses    
     def printerPrint(self):
+        #try to connect Epson TM-T20III USB printer device.
         try:
             printer = getUSBPrinter(commandSet='Generic')(idVendor=0x04b8,
                           			      idProduct=0x0e28, 
@@ -56,19 +58,21 @@ class printerTest(QtWidgets.QDialog):
                           		   	      outputEndPoint=0x01)
         except: 
             print("no Epson TM-T20III printer Found!")
-
+        
+        #try to connect Epson TM-M10 USB printer device. 
         try:
             printer = getUSBPrinter(commandSet='Generic')(idVendor=0x04b8,
                           			      idProduct=0x0e1f, 
                           			      inputEndPoint=0x82,
                           		   	      outputEndPoint=0x01)
         except: 
-            print("no Epson TM-m10 printer Found!")
+            print("no Epson TM-M10 printer Found!")
 
         printer.drawerKickPulse()	
         printer.doubleHeight()
         printer.doubleWidth()
         printer.bold() 
+        #Scan eth and wifi interfaces and add to printing text
         for iface in self._interfaces:
             allAddrs = netifaces.ifaddresses(iface)
             printer.text('Interface %s:' % iface)
@@ -80,6 +84,7 @@ class printerTest(QtWidgets.QDialog):
                     if fam_name == "AF_PACKET":
                         printer.text('    MAC Address  : %s' % addr['addr'])
                         print('    Address  : %s' % addr['addr'])        
+        #print
         printer.lf()
         printer.drawerKickPulse()
         printer.cutPaper()

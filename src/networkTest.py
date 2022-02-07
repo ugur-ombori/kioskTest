@@ -29,9 +29,12 @@ class networkTest(QtWidgets.QDialog):
         self.checkConnection()
         self.show()
         
+        #Create a separete thread. Without seperate thread page will freeze and wait untill all wifi's found (around 10sec)
         self.wifiScan = threading.Thread(target=self.Search)
+        #Start wifi scan
         self.wifiScan.start()
     
+    #Checks, does internet connection exist? if exists check the upload and download speed
     def checkConnection(self):
         connection = self.connectTest()
         if connection == True:
@@ -44,7 +47,7 @@ class networkTest(QtWidgets.QDialog):
             self.ui.speed_label.setText("Testing...\n \
             Download: Calculating.. \n \
             Upload  : Calculating..")
-            
+            #Create a separete thread. Without seperate thread page will freeze and wait untill connection speed test ends (around 45sec)
             self.speedTestProcess = threading.Thread(target=self.speedTestCalculate)
             if self.speedTestProcess.is_alive():
                 print("Thread Alive")
@@ -52,6 +55,7 @@ class networkTest(QtWidgets.QDialog):
                 Download: Calculating.. \n \
                 Upload  : Calculating..")
             else:
+                #Starts the speed test Thread
                 self.speedTestProcess.start()
         else:
             
@@ -60,10 +64,10 @@ class networkTest(QtWidgets.QDialog):
             self.ui.InternetOutput_label.setStyleSheet("color: rgb(239, 41, 41);")
             self.ui.InternetOutput_label.setText("Internet Not Connected")
     
-    
+    #Tests upload and download speed of connection
     def speedTestCalculate(self):
         speed = speedtest.Speedtest()
-        print("basladi")
+        print("started")
         download = speed.download()/1024/1024
         self.ui.speed_label.setText("Testing...\n \
         Download: {:.2f}Mb/s  \n \
@@ -74,8 +78,9 @@ class networkTest(QtWidgets.QDialog):
         Download: {:.2f}Mb/s  \n \
         Upload  : {:.2f}Mb/s".format(download,upload)) 
         
-        print("bitti")
-               
+        print("end")
+    
+    #Checks the connection with sending request to google.com           
     def connectTest(self, host='http://google.com'):
         try:
             urllib.request.urlopen(host) 
@@ -83,9 +88,10 @@ class networkTest(QtWidgets.QDialog):
         except:
             return False
     
+    #Scans the active wifi networks and add them to combobox
     def Search(self):
         wifilist = []
-
+        #wlp2s0 needs to modify if another wifi interfaces is used.(ifconfig for finding interfaces)
         cells = wifi.Cell.all('wlp2s0')
 
         for cell in cells:
@@ -96,7 +102,7 @@ class networkTest(QtWidgets.QDialog):
         
         return wifilist
 
-
+    #Searchs a spesific SSID(wifi name) from all scanned wifi list
     def FindFromSearchList(self, ssid):
         wifilist = self.Search()
 
@@ -106,8 +112,9 @@ class networkTest(QtWidgets.QDialog):
 
         return False
 
-
+    #Searchs a spesific SSID(wifi name) from saved network list
     def FindFromSavedList(self, ssid):
+        #wlp2s0 needs to modify if another wifi interfaces is used.(ifconfig for finding interfaces)
         cell = wifi.Scheme.find('wlp2s0', ssid)
 
         if cell:
@@ -115,7 +122,7 @@ class networkTest(QtWidgets.QDialog):
 
         return False
 
-
+    #Connects to wifi network selected in the combo box.
     def Connect(self, password=None):
         ssid = self.ui.comboBox.currentText()
         password = self.ui.lineEdit_2.text()
@@ -162,16 +169,16 @@ class networkTest(QtWidgets.QDialog):
         
         return False
 
-
+    #Saves the network to connect easier later on
     def Add(self, cell, password=None):
         if not cell:
             return False
-
+        #wlp2s0 needs to modify if another wifi interfaces is used.(ifconfig for finding interfaces)
         scheme = wifi.Scheme.for_cell('wlp2s0', cell.ssid, cell, password)
         scheme.save()
         return scheme
 
-
+    #Deletes the network from saved list
     def Delete(self, ssid):
         if not ssid:
             return False
