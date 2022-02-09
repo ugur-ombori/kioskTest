@@ -2,6 +2,7 @@ from PyQt5 import QtWidgets, QtCore
 from Ui_kiosk import Ui_MainWindow
 from networkTest import networkTest
 from printerTest import printerTest
+from barcodeTest import barcodeTest
 from PyQt5.uic import loadUi
 import os
 import sys
@@ -25,7 +26,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.TouchScreenTest_Button.clicked.connect(self.TouchScreenTest_Button_clicked)
         self.ui.networkTest_Button.clicked.connect(self.networkTest_Button_clicked)
         self.ui.PrinterTest_button.clicked.connect(self.printerTest_Button_clicked)
-    
+        self.ui.BarcodeScanner_button.clicked.connect(self.BarcodeScanner_Button_clicked)
     #Shuts down the Kiosk
     def poweroffButton_clicked(self):
         os.system('shutdown -P now')
@@ -42,7 +43,11 @@ class MainWindow(QtWidgets.QMainWindow):
     #Opens printer test page    
     def printerTest_Button_clicked(self):
         dialogPrinter = printerTest()
-        dialogPrinter.exec_()    
+        dialogPrinter.exec_()   
+    
+    def BarcodeScanner_Button_clicked(self):
+        barcodeTester = barcodeTest()
+        barcodeTester.exec_()  
             
 if __name__ == '__main__':
     app = QtWidgets.QApplication([])

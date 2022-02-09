@@ -123,6 +123,12 @@ Upload:</string>
         </item>
         <item>
          <widget class="QPushButton" name="ConnectionCheck_button">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>50</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
             <width>100</width>
@@ -191,6 +197,12 @@ Upload:</string>
             </item>
             <item>
              <widget class="QPushButton" name="wifiConnect_button">
+              <property name="minimumSize">
+               <size>
+                <width>274</width>
+                <height>50</height>
+               </size>
+              </property>
               <property name="styleSheet">
                <string notr="true">background-color: rgb(46, 52, 54);</string>
               </property>

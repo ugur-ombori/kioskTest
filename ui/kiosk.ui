@@ -57,127 +57,193 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>590</y>
-      <width>421</width>
-      <height>251</height>
+      <x>90</x>
+      <y>370</y>
+      <width>702</width>
+      <height>498</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QSplitter" name="splitter">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+      <widget class="QPushButton" name="TouchScreenTest_Button">
+       <property name="minimumSize">
+        <size>
+         <width>700</width>
+         <height>100</height>
+        </size>
        </property>
-       <widget class="QPushButton" name="TouchScreenTest_Button">
-        <property name="minimumSize">
-         <size>
-          <width>419</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>419</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(46, 52, 54);</string>
-        </property>
-        <property name="text">
-         <string>Touch Screen 
+       <property name="maximumSize">
+        <size>
+         <width>700</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(46, 52, 54);</string>
+       </property>
+       <property name="text">
+        <string>Touch Screen 
 Test&amp;&amp;Calibrate</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="networkTest_Button">
-        <property name="minimumSize">
-         <size>
-          <width>419</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>419</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(46, 52, 54);</string>
-        </property>
-        <property name="text">
-         <string>Network Test</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="PrinterTest_button">
-        <property name="minimumSize">
-         <size>
-          <width>418</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>418</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(46, 52, 54);</string>
-        </property>
-        <property name="text">
-         <string>Printer Test</string>
-        </property>
-       </widget>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QSplitter" name="splitter_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+      <widget class="QPushButton" name="PrinterTest_button">
+       <property name="minimumSize">
+        <size>
+         <width>700</width>
+         <height>100</height>
+        </size>
        </property>
-       <widget class="QPushButton" name="exit_Button">
-        <property name="minimumSize">
-         <size>
-          <width>89</width>
-          <height>25</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>89</width>
-          <height>25</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(46, 52, 54);</string>
-        </property>
-        <property name="text">
-         <string>Exit</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="poweroff_Button">
-        <property name="minimumSize">
-         <size>
-          <width>89</width>
-          <height>25</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>89</width>
-          <height>25</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(46, 52, 54);</string>
-        </property>
-        <property name="text">
-         <string>Poweroff</string>
-        </property>
-       </widget>
+       <property name="maximumSize">
+        <size>
+         <width>700</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(46, 52, 54);</string>
+       </property>
+       <property name="text">
+        <string>Printer Test</string>
+       </property>
       </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="networkTest_Button">
+       <property name="minimumSize">
+        <size>
+         <width>700</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>700</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(46, 52, 54);</string>
+       </property>
+       <property name="text">
+        <string>Network Test</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="BarcodeScanner_button">
+       <property name="minimumSize">
+        <size>
+         <width>700</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>700</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(46, 52, 54);</string>
+       </property>
+       <property name="text">
+        <string>Barcode Scanner Test</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="poweroff_Button">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(46, 52, 54);</string>
+         </property>
+         <property name="text">
+          <string>Poweroff for
+GridOS</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exit_Button">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(46, 52, 54);</string>
+         </property>
+         <property name="text">
+          <string>Exit</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>

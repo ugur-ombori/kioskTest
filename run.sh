@@ -1,6 +1,6 @@
-#!/bin/sh
-
+#!/bin/bash
 
 cd $HOME/kioskTest
 
-sudo python3 src/app.py
+export DISPLAY=:0.0
+python3 $HOME/kioskTest/src/app.py

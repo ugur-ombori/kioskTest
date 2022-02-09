@@ -88,14 +88,14 @@
            <widget class="QPushButton" name="print_button">
             <property name="minimumSize">
              <size>
-              <width>80</width>
-              <height>25</height>
+              <width>200</width>
+              <height>70</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>80</width>
-              <height>25</height>
+              <width>200</width>
+              <height>70</height>
              </size>
             </property>
             <property name="styleSheet">

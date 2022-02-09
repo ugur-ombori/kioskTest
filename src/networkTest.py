@@ -38,8 +38,11 @@ class networkTest(QtWidgets.QDialog):
     def checkConnection(self):
         connection = self.connectTest()
         if connection == True:
-            IPaddress=socket.gethostbyname(socket.gethostname())
-            self.ui.Ip_label.setText("Ip: " +IPaddress)
+            gw = os.popen("ip -4 route show default").read().split()
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.connect((gw[2], 0))
+            ipaddr = s.getsockname()[0]
+            self.ui.Ip_label.setText("Ip: " + ipaddr)
             
             self.ui.InternetOutput_label.setStyleSheet("color: rgb(115, 210, 22);")
             self.ui.InternetOutput_label.setText("Internet Connected")
