@@ -6,7 +6,7 @@ from barcodeTest import barcodeTest
 from PyQt5.uic import loadUi
 import os
 import sys
-
+import subprocess
 from printerTest import printerTest
 
 
@@ -27,6 +27,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.networkTest_Button.clicked.connect(self.networkTest_Button_clicked)
         self.ui.PrinterTest_button.clicked.connect(self.printerTest_Button_clicked)
         self.ui.BarcodeScanner_button.clicked.connect(self.BarcodeScanner_Button_clicked)
+        self.ui.rotate_down_button.clicked.connect(self.rotate_down)
+        self.ui.rotate_left_button.clicked.connect(self.rotate_left)
+        self.ui.rotate_right_button.clicked.connect(self.rotate_right)
+        self.ui.rotate_up_button.clicked.connect(self.rotate_up)
     #Shuts down the Kiosk
     def poweroffButton_clicked(self):
         os.system('shutdown -P now')
@@ -48,7 +52,19 @@ class MainWindow(QtWidgets.QMainWindow):
     def BarcodeScanner_Button_clicked(self):
         barcodeTester = barcodeTest()
         barcodeTester.exec_()  
-            
+    
+    def rotate_down(self):
+        subprocess.check_call(['/home/kioksk/kioskTest/rotate.sh inverted'], shell = True)
+ 
+    def rotate_left(self):
+        subprocess.check_call(['/home/kioksk/kioskTest/rotate.sh left'], shell = True)
+
+    def rotate_right(self):
+        subprocess.check_call(['/home/kioksk/kioskTest/rotate.sh right'], shell = True)
+        
+    def rotate_up(self):  
+        subprocess.check_call(['/home/kioksk/kioskTest/rotate.sh normal'], shell = True)
+        
 if __name__ == '__main__':
     app = QtWidgets.QApplication([])
     window = MainWindow()

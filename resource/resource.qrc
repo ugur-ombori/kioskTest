@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="pictures">
+    <file>Configurator2.png</file>
+    <file>Configurator.png</file>
     <file>ombori_white3.png</file>
     <file>ombori_white2.png</file>
     <file>ombori_white.png</file>
