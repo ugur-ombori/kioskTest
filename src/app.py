@@ -54,16 +54,16 @@ class MainWindow(QtWidgets.QMainWindow):
         barcodeTester.exec_()  
     
     def rotate_down(self):
-        subprocess.check_call(['/home/kioksk/kioskTest/rotate.sh inverted'], shell = True)
+        subprocess.run(['/home/ubuntu/kioskTest/rotate.sh','inverted'])
  
     def rotate_left(self):
-        subprocess.check_call(['/home/kioksk/kioskTest/rotate.sh left'], shell = True)
+        subprocess.run(['/home/ubuntu/kioskTest/rotate.sh','left'])
 
     def rotate_right(self):
-        subprocess.check_call(['/home/kioksk/kioskTest/rotate.sh right'], shell = True)
+        subprocess.run(['/home/ubuntu/kioskTest/rotate.sh','right'])
         
     def rotate_up(self):  
-        subprocess.check_call(['/home/kioksk/kioskTest/rotate.sh normal'], shell = True)
+        subprocess.run(['/home/ubuntu/kioskTest/rotate.sh','normal'])
         
 if __name__ == '__main__':
     app = QtWidgets.QApplication([])
