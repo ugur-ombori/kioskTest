@@ -73,17 +73,20 @@ class printerTest(QtWidgets.QDialog):
         printer.doubleWidth()
         printer.bold() 
         #Scan eth and wifi interfaces and add to printing text
-        for iface in self._interfaces:
-            allAddrs = netifaces.ifaddresses(iface)
-            printer.text('Interface %s:' % iface)
-            print('Interface %s:' % iface)
-            for family in allAddrs:
-                addrs = allAddrs[family]
-                fam_name = netifaces.address_families[family]
-                for addr in addrs:
-                    if fam_name == "AF_PACKET":
-                        printer.text('    MAC Address  : %s' % addr['addr'])
-                        print('    Address  : %s' % addr['addr'])        
+        try:
+            for iface in self._interfaces:
+                allAddrs = netifaces.ifaddresses(iface)
+                printer.text('Interface %s:' % iface)
+                print('Interface %s:' % iface)
+                for family in allAddrs:
+                    addrs = allAddrs[family]
+                    fam_name = netifaces.address_families[family]
+                    for addr in addrs:
+                        if fam_name == "AF_PACKET":
+                            printer.text('    MAC Address  : %s' % addr['addr'])
+                            print('    Address  : %s' % addr['addr'])        
+        except:
+            printer.text('Scanning MAC Adresses... Try again in few seconds.')
         #print
         printer.lf()
         printer.drawerKickPulse()
